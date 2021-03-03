@@ -7,6 +7,9 @@
     "dist"
   ],
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo lol",
     "build": "tsup src/index.ts",
