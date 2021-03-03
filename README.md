@@ -1,5 +1,7 @@
 # @ream/vercel-builder
 
+In `vercel.json`:
+
 ```json
 {
   "builds": [
