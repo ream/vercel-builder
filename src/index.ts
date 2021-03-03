@@ -1,10 +1,24 @@
 import path from 'path'
 import fs from 'fs'
 import execa from 'execa'
-import { BuildOptions, createLambda, FileBlob, glob } from '@vercel/build-utils'
+import {
+  BuildOptions,
+  createLambda,
+  FileBlob,
+  glob,
+  runNpmInstall,
+} from '@vercel/build-utils'
 
 export async function build(options: BuildOptions) {
   const dir = path.dirname(options.entrypoint)
+
+  await runNpmInstall(dir, [
+    '--prefer-offline',
+    '--frozen-lockfile',
+    '--non-interactive',
+    '--production=false',
+  ])
+
   // Build the code here…
   await execa('./node_modules/.bin/ream', ['build', '--standalone'], {
     stdio: 'inherit',
