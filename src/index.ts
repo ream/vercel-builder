@@ -105,6 +105,7 @@ export async function build({
   const staticFiles = await glob(
     '**',
     path.join(entrypointPath, '.ream/client'),
+    '.ream/client',
   )
 
   return {
