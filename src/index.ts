@@ -72,7 +72,7 @@ export async function build({
   const launcherSrc = await fs.promises.readFile(launcherPath, 'utf8')
   const reamHandlerPath = path.join(
     entrypointPath,
-    '.ream/meta/server-context-bundle.js',
+    '.ream/server/standalone-bundle.js',
   )
   const reamHandlerSrc = await fs.promises.readFile(reamHandlerPath, 'utf8')
 
