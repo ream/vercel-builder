@@ -1,12 +1,17 @@
+import { createServer } from 'http'
 const { createHandler } = require('./ream__handler.js')
-const { Bridge } = require('./vercel__bridge.js')
+const {
+  Bridge,
+}: typeof import('@vercel/node-bridge') = require('./vercel__bridge.js')
 
 const handlerPromise = createHandler('.')
 
-const bridge = new Bridge(async (req: any, res: any) => {
+const server = createServer(async (req: any, res: any) => {
   const handler = await handlerPromise
   return handler(req, res)
 })
+
+const bridge = new Bridge(server)
 
 bridge.listen()
 

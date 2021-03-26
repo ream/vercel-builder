@@ -1,5 +1,5 @@
 {
-  "version": "0.0.17",
+  "version": "0.0.18",
   "name": "@ream/vercel-builder",
   "description": "Vercel builder for Ream",
   "license": "MIT",
